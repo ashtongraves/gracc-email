@@ -32,8 +32,8 @@ class Directory:
 	def parse(self):
 		how_old = 7
 		context = gfal2.creat_context()
-		cred_cert = gfal2.cred_new("X509_CERT", "/hostcert.pem")
-		cred_key = gfal2.cred_new("X509_KEY", "/hostkey.pem")
+		cred_cert = gfal2.cred_new("X509_CERT", "/backup-cert/tls.crt")
+		cred_key = gfal2.cred_new("X509_KEY", "/backup-cert/tls.key")
 		gfal2.cred_set(context, self.path, cred_cert)
 		gfal2.cred_set(context, self.path, cred_key)
 		total_size = 0
@@ -64,7 +64,6 @@ class Directory:
 
 def add_args(parser):
 	parser.add_argument('emails', metavar='email', type=str, nargs='+', help='Email(s) to send report')
-	parser.add_argument('--smtp', type=str, dest='smtp', help='SMTP server to use')
 
 def main():
 	before = datetime.datetime.now() 
