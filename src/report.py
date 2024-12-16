@@ -101,7 +101,7 @@ def main():
 	# Create the email
 	msg = MIMEText("<pre style=\"font-size:small\">" + email_body + "</pre>", 'html')
 	msg['Subject'] = subject
-	from_address = "gracc-support@ops.osg-htc.org"
+	from_address = "gracc-project@osg-htc.org"
 	msg['From'] = from_address
 	s = smtplib.SMTP_SSL(host=os.environ['SMTP_HOST'], port=os.environ['SMTP_PORT'])
 	s.login(user=os.environ['SMTP_USER'], password=os.environ['SMTP_PASSWORD'])
